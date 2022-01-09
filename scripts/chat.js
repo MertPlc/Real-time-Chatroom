@@ -12,7 +12,7 @@ class Chatroom {
       message,
       username: this.username,
       room: this.room,
-      created_at: firebase.firestore.Timestamp.fromDate(now),
+      created_at: firebase.firestore.Timestamp.fromDate(now)
     };
 
     // save the chat document
@@ -26,8 +26,8 @@ class Chatroom {
       .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
-            // update the ui
-            callback(change.doc.data());
+              // update the ui
+              callback(change.doc.data());
             }
         });
     });
